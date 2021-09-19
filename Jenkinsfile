@@ -11,11 +11,16 @@ pipeline {
                 sh "docker-compose up search-module book-flight-module"
             }
         }
-        post {
-            always{
-                archiveArtfacts artifacts: 'output/**'
+        stage('Stop Grid') {
+            steps {
                 sh "docker-compose down"
             }
         }
+        // post {
+        //     always{
+        //         archiveArtfacts artfacts: 'output/**'
+        //         sh "docker-compose down"
+        //     }
+        // }
     }
 }
