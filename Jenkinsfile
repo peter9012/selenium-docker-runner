@@ -16,11 +16,11 @@ pipeline {
                 sh "docker-compose down"
             }
         }
-        // post {
-        //     always{
-        //         archiveArtfacts artfacts: 'output/**'
-        //         sh "docker-compose down"
-        //     }
-        // }
+    }
+    post {
+        always{
+            archiveArtfacts artfacts: 'output/**'
+            sh "docker-compose down"
+        }
     }
 }
